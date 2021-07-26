@@ -2,7 +2,7 @@
 
 ### Overview
 - Path-Restore selects a specific network path for each image region.
-<img src='imgs/framework.png' align="center">
+<img src='imgs/framework.png' align="center" width="500">
 
 ### Citation
     @article{yu2021path,
