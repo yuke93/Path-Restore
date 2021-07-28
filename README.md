@@ -1,4 +1,4 @@
-## Path-Restore [[DOI](https://doi.org/10.1109/TPAMI.2021.3096255)][[Project Page](https://www.mmlab-ntu.com/project/pathrestore/index.html)]
+## Path-Restore [[DOI](https://doi.org/10.1109/TPAMI.2021.3096255)][[arXiv](https://arxiv.org/abs/1904.10343)][[Project Page](https://www.mmlab-ntu.com/project/pathrestore/index.html)]
 
 ### Overview
 - Path-Restore selects a specific network path for each image region.
