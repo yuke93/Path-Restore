@@ -77,6 +77,6 @@ if __name__ == '__main__':
         dynamic_model = DynamicModelTest(**vars(args))
 
         if args.test_set == 'mine':
-            dynamic_model.test_mine()
+            dynamic_model.test_whole_image()
         else:
             raise NotImplementedError(args.test_set)

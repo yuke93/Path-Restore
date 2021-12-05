@@ -147,12 +147,13 @@ class DynamicModel(object):
         filters = self.kwargs['filters']
         is_train = self.kwargs['is_train']
         num_path = self.kwargs['num_path']
+        share_filter_size = self.kwargs['share_filter_size']
+        share_layers = self.kwargs['share_layers']
+        shared_mid_filters = self.kwargs['shared_mid_filters']
         is_router_action = self.kwargs['is_router_action']
         is_share_down_up = self.kwargs['is_share_down_up']
-        share_filter_size = self.kwargs['share_filter_size']
         is_router_parallel = self.kwargs['is_router_parallel']
-        share_layers = self.kwargs['share_layers']
-        is_bn = False  # do not use BN
+        is_bn = False  # hard code, do not use BN
 
         # build routing block
         with tf.variable_scope('rb' + str(block_id + 1)):
@@ -177,7 +178,7 @@ class DynamicModel(object):
                                     is_bn,
                                     is_train,
                                     f_size=share_filter_size,
-                                    mid_filters=self.shared_mid_filters
+                                    mid_filters=shared_mid_filters
                                 )
                         elif share_layers == 1:
                             print('Share single layer!')
@@ -287,11 +288,12 @@ class DynamicModel(object):
         num_path = self.kwargs['num_path']
         data_size = self.kwargs['data_size']
         is_train = self.kwargs['is_train']
+        router_conv_filters = self.kwargs['router_conv_filters']
 
         # define variables for convolution layers
         weights = []
         biases = []
-        conv_filters = [filters] + self.router_conv_filters
+        conv_filters = [filters] + router_conv_filters
 
         if len(conv_filters) == 5:  # stride=2
             for k in range(len(conv_filters) - 1):

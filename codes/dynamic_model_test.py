@@ -111,8 +111,8 @@ class DynamicModelTest(DynamicModel):
 
             if is_label:
                 psnr_mean = np.array(psnr_list).mean()
+                avg_psnr += psnr_mean
             rb_mean = 1. * total_rb / total_patches
-            avg_psnr += psnr_mean
             avg_rb += rb_mean
 
         avg_rb /= len(noise_levels)

@@ -42,5 +42,9 @@ class MyData(object):
             test_image[filename] = img
         return test_image
 
-    def get_test_data(self):
-        return self._test_data, self._test_label
+    def get_test_data(self, distort_level):
+        if 'mine' in distort_level:
+            return self._test_data, self._test_label
+        else:
+            # TODO: support multiple distortion levels
+            pass
