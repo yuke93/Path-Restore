@@ -4,7 +4,12 @@ from dynamic_model_test import DynamicModelTest
 
 
 def read_bool(x: str):
-    return x == 'True'
+    if x.lower() == 'true':
+        return True
+    elif x.lower() == 'false':
+        return False
+    else:
+        raise ValueError('parameter should be true or false')
 
 
 def read_list(x: str):
@@ -14,19 +19,19 @@ def read_list(x: str):
 parser = argparse.ArgumentParser()
 
 # build graph
-parser.add_argument('--is_train', type=read_bool, default=True,
+parser.add_argument('--is_train', type=read_bool, default=False,
                     help='whether to train')
 parser.add_argument('--out_channel', type=int, default=3,
                     help='No. of output channels')
-parser.add_argument('--filters', type=int, default=32,
+parser.add_argument('--filters', type=int, default=64,
                     help='No. of intermediate channels')
 parser.add_argument('--batch_size', type=int, default=32,
                     help='batch size')
-parser.add_argument('--num_path', type=int, default=4,
+parser.add_argument('--num_path', type=int, default=2,
                     help='No. of dynamic paths')
-parser.add_argument('--rb_num', type=int, default=3,
+parser.add_argument('--rb_num', type=int, default=6,
                     help='No. of dynamic routing blocks')
-parser.add_argument('--rb_num_share', type=int, default=2,
+parser.add_argument('--rb_num_share', type=int, default=1,
                     help='No. of shared residual blocks in one dynamic block')
 parser.add_argument('--is_share_down_up', type=read_bool, default=False,
                     help='whether to use down/up-sample in shared block')
