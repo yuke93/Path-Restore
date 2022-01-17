@@ -339,7 +339,6 @@ class DynamicModel(object):
         feat_size = math.ceil(data_size / 16.)
         linear_input = feat_size * feat_size * conv_filters[-1]
         hidden_unit = min(linear_input, hidden_unit)
-        print('hidden_unit = {}'.format(hidden_unit))
         linear_size = [linear_input, hidden_unit]
         linear_ws = []
         linear_bs = []

@@ -121,4 +121,4 @@ class DynamicModelTest(DynamicModel):
             print('average PSNR: {:.3f}, average dynamic \
                   block: {:.3f}'.format(avg_psnr, avg_rb))
         else:
-            print('average dynamic block: {:.3f}'.format(avg_rb))
+            print('average number of dynamic block: {:.3f}'.format(avg_rb))
